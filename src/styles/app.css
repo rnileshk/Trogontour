@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f6f1;
+  color: #222;
+}
+
+.navbar {
+  background: #1f4d3a;
+  color: white;
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.35);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.page-banner {
+  background: linear-gradient(rgba(31, 77, 58, 0.85), rgba(31, 77, 58, 0.85)),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80")
+      center/cover no-repeat;
+  color: white;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.page-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.page-banner p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.search-bar input,
+.search-bar select {
+  flex: 1;
+  min-width: 220px;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  background-color: #1f4d3a;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+}

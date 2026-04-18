@@ -1,0 +1,59 @@
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    right: 20px;
+    background: #1f4d3a;
+    flex-direction: column;
+    padding: 18px;
+    border-radius: 10px;
+    display: none;
+    min-width: 200px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  .admin-login-modal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .dashboard-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.6rem !important;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .page-banner h1 {
+    font-size: 1.8rem;
+  }
+}
