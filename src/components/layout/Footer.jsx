@@ -16,7 +16,7 @@ function Footer() {
           style={{ gridTemplateColumns: "1.5fr 1fr", gap: "30px", marginBottom: "25px" }}
         >
           <div>
-            <h3 style={{ marginBottom: "14px" }}>TravelScape</h3>
+            <h3 style={{ marginBottom: "14px" }}>Trogontours</h3>
             <p style={{ lineHeight: "1.8", maxWidth: "600px" }}>
               Discover beautiful destinations, memorable adventures and
               thoughtfully designed travel experiences with comfort, trust and
@@ -28,10 +28,10 @@ function Footer() {
 
           <div className="card" style={{ padding: "25px" }}>
             <h3 style={{ marginBottom: "15px", color: "#15d686" }}>Get in Touch</h3>
-            <p style={{ marginBottom: "10px" }}>Email: support@travelscape.in</p>
+            <p style={{ marginBottom: "10px" }}>Email: support@Trogontours.in</p>
             <p style={{ marginBottom: "10px" }}>Phone: +91 9876543210</p>
             <p style={{ marginBottom: "10px" }}>WhatsApp: +91 9876543210</p>
-            <p style={{ marginBottom: "10px" }}>Address: Bangalore, Karnataka, India</p>
+            <p style={{ marginBottom: "10px" }}>Address: Assam, India</p>
             <p style={{ marginBottom: "10px" }}>Support Hours: Mon - Sat, 9 AM - 7 PM</p>
           </div>
         </div>
