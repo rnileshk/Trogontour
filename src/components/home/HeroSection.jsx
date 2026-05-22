@@ -5,7 +5,7 @@ function HeroSection() {
     <section
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80')",
+          "url('https://drive.google.com/file/d/1-h01EZEaiMcfb1wMwFuphRxhmNi3IafP/view?usp=sharing')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "white",
