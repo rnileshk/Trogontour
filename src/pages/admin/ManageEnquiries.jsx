@@ -11,14 +11,26 @@ function ManageEnquiries() {
   const [statusFilter, setStatusFilter] = useState("");
 
   const fetchEnquiries = async () => {
-    try {
-      const res = await api.get("/admin/enquiries");
-      setEnquiries(res.data.data || []);
-    } catch (error) {
-      console.error("Error fetching enquiries:", error);
-      showToast("Failed to fetch enquiries", "error");
-    }
-  };
+  try {
+    const token = localStorage.getItem("token"); // 👈 IMPORTANT
+
+    const res = await api.get("/admin/enquiries", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    setEnquiries(res.data?.data || []);
+  } catch (error) {
+    console.error("Error fetching enquiries:", error);
+
+    // 👇 show real backend error (super important for debugging)
+    const message =
+      error.response?.data?.message || "Failed to fetch enquiries";
+
+    showToast(message, "error");
+  }
+};
 
   useEffect(() => {
     fetchEnquiries();

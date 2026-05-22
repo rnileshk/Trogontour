@@ -6,10 +6,10 @@ import {
   FaQuoteLeft,
   FaImages,
   FaArrowRight,
-  FaChartLine,
   FaGlobeAsia,
   FaHandSparkles,
 } from "react-icons/fa";
+
 import AdminLayout from "../../components/admin/AdminLayout";
 import api from "../../services/api";
 import { useToast } from "../../context/ToastContext";
@@ -17,11 +17,20 @@ import { useToast } from "../../context/ToastContext";
 function Dashboard() {
   const { showToast } = useToast();
 
+  // ================= STATS =================
   const [stats, setStats] = useState({
     totalTours: 0,
     totalEnquiries: 0,
     totalTestimonials: 0,
     totalGalleryImages: 0,
+  });
+
+  // ================= EMPLOYEE FORM =================
+  const [employeeForm, setEmployeeForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "EMPLOYEE",
   });
 
   useEffect(() => {
@@ -38,6 +47,33 @@ function Dashboard() {
     fetchStats();
   }, [showToast]);
 
+  // ================= HANDLERS =================
+  const handleEmployeeChange = (e) => {
+    setEmployeeForm({
+      ...employeeForm,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const createEmployee = async () => {
+    try {
+      await api.post("/employee/register", employeeForm);
+
+      showToast("Employee created successfully", "success");
+
+      setEmployeeForm({
+        name: "",
+        email: "",
+        password: "",
+        role: "EMPLOYEE",
+      });
+    } catch (error) {
+      console.error(error);
+      showToast("Failed to create employee", "error");
+    }
+  };
+
+  // ================= CARDS =================
   const cards = [
     {
       title: "Total Tours",
@@ -121,6 +157,7 @@ function Dashboard() {
 
   return (
     <AdminLayout>
+      {/* HERO */}
       <div className="dashboard-hero">
         <div className="dashboard-hero-blur one" />
         <div className="dashboard-hero-blur two" />
@@ -131,24 +168,20 @@ function Dashboard() {
 
         <h1 className="dashboard-hero-title">Welcome back, Admin</h1>
         <p className="dashboard-hero-text">
-          Control your travel platform with a modern command center. Monitor tours,
-          leads, testimonials, and gallery content from one premium dashboard.
+          Control your travel platform with a modern command center.
         </p>
       </div>
 
+      {/* STATS */}
       <div className="dashboard-stats-grid premium-gap">
         {cards.map((card, index) => (
           <div
             key={index}
             className="premium-stat-card"
-            style={{
-              "--accent": card.accent,
-              "--glow": card.glow,
-            }}
+            style={{ "--accent": card.accent, "--glow": card.glow }}
           >
             <div className="premium-stat-top">
               <div className="premium-stat-icon">{card.icon}</div>
-              <div className="premium-stat-dot" />
             </div>
 
             <p className="premium-stat-label">{card.title}</p>
@@ -157,11 +190,12 @@ function Dashboard() {
         ))}
       </div>
 
+      {/* MAIN GRID */}
       <div className="dashboard-main-grid premium-gap">
+        {/* QUICK ACTIONS */}
         <div className="premium-panel">
           <div className="premium-panel-header">
             <h2>Quick Actions</h2>
-            <span>Shortcuts</span>
           </div>
 
           <div className="quick-links-grid">
@@ -170,7 +204,7 @@ function Dashboard() {
                 <div className="premium-action-icon">{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <span className="premium-action-link">
+                <span>
                   Open <FaArrowRight />
                 </span>
               </Link>
@@ -178,10 +212,10 @@ function Dashboard() {
           </div>
         </div>
 
+        {/* SUMMARY */}
         <div className="premium-panel">
           <div className="premium-panel-header">
             <h2>Admin Summary</h2>
-            <span>Overview</span>
           </div>
 
           <div className="premium-summary-list">
@@ -199,6 +233,53 @@ function Dashboard() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* 👇 EMPLOYEE CREATION SECTION (NEW) */}
+      <div className="premium-panel">
+        <div className="premium-panel-header">
+          <h2>Create Employee Credentials</h2>
+          <span>HR Panel</span>
+        </div>
+
+        <div className="employee-form-grid">
+          <input
+            type="text"
+            name="name"
+            placeholder="Employee Name"
+            value={employeeForm.name}
+            onChange={handleEmployeeChange}
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Employee Email"
+            value={employeeForm.email}
+            onChange={handleEmployeeChange}
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={employeeForm.password}
+            onChange={handleEmployeeChange}
+          />
+
+          <select
+            name="role"
+            value={employeeForm.role}
+            onChange={handleEmployeeChange}
+          >
+            <option value="EMPLOYEE">EMPLOYEE</option>
+            <option value="ADMIN">ADMIN</option>
+          </select>
+
+          <button onClick={createEmployee}>
+            Create Employee
+          </button>
         </div>
       </div>
     </AdminLayout>
