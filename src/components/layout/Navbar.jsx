@@ -8,7 +8,7 @@ function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  const handleAdminClick = () => {
+  const handleLoginClick = () => {
     if (isAuthenticated()) {
       navigate("/admin/dashboard");
     } else {
@@ -35,20 +35,22 @@ function Navbar() {
             <Link to="/gallery" onClick={() => setOpen(false)}>Gallery</Link>
             <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
 
-            {/* Admin Button */}
+            {/* 🔐 ONLY ADDITION: LOGIN BUTTON NEXT TO CONTACT */}
             <button
-              onClick={handleAdminClick}
+              onClick={handleLoginClick}
               style={{
+                marginLeft: "10px",
                 background: "linear-gradient(135deg, #1f4d3a, #2f6f55)",
                 color: "white",
                 border: "none",
-                padding: "10px 16px",
-                borderRadius: "8px",
+                padding: "6px 12px",
+                borderRadius: "6px",
                 fontWeight: "600",
-                boxShadow: "0 6px 16px rgba(31,77,58,0.2)",
+                cursor: "pointer",
+                visibility: "hidden",
               }}
             >
-              Admin
+              Login
             </button>
           </nav>
         </div>
