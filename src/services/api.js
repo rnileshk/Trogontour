@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://trongon.onrender.com/api",
 });
 
 api.interceptors.request.use(
