@@ -1,7 +1,9 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
+
 import WhatsAppButton from "./components/common/WhatsAppButton";
 import ScrollToTopButton from "./components/common/ScrollToTopButton";
 
@@ -12,24 +14,29 @@ import TourDetails from "./pages/TourDetails";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Testimonials from "./pages/Testimonials";
 
+// ADMIN
 import Dashboard from "./pages/admin/Dashboard";
 import ManageTours from "./pages/admin/ManageTours";
 import ManageEnquiries from "./pages/admin/ManageEnquiries";
 import ManageTestimonials from "./pages/admin/ManageTestimonials";
 import ManageGallery from "./pages/admin/ManageGallery";
-import Testimonials from "./pages/Testimonials";
 
 function App() {
   const location = useLocation();
+
   const isAdminRoute = location.pathname.startsWith("/admin");
+  const isEmployeeRoute = location.pathname.startsWith("/employee");
 
   return (
     <>
-      {!isAdminRoute && <Navbar />}
+      {!isAdminRoute && !isEmployeeRoute && <Navbar />}
 
       <main style={{ minHeight: "80vh" }}>
         <Routes>
+
+          {/* PUBLIC ROUTES */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/tours" element={<Tours />} />
@@ -38,6 +45,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/feedback" element={<Testimonials />} />
 
+          {/* ================= ADMIN ================= */}
           <Route
             path="/admin/dashboard"
             element={
@@ -82,12 +90,13 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          {/* NOT FOUND */}
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </main>
 
-      {!isAdminRoute && (
+      {!isAdminRoute && !isEmployeeRoute && (
         <>
           <Footer />
           <WhatsAppButton />

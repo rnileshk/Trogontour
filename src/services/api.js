@@ -9,7 +9,6 @@ api.interceptors.request.use(
   (config) => {
     const token = getToken();
 
-    // Do NOT attach token for login/register routes
     const isAuthRoute =
       config.url?.includes("/auth/login") ||
       config.url?.includes("/auth/register-admin");
@@ -22,5 +21,12 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+// 👑 ADMIN ONLY APIs
+export const adminLogin = (data) =>
+  api.post("/auth/login", data);
+
+export const adminRegister = (data) =>
+  api.post("/auth/register-admin", data);
 
 export default api;

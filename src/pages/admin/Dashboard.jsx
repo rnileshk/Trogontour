@@ -235,53 +235,6 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
-      {/* 👇 EMPLOYEE CREATION SECTION (NEW) */}
-      <div className="premium-panel">
-        <div className="premium-panel-header">
-          <h2>Create Employee Credentials</h2>
-          <span>HR Panel</span>
-        </div>
-
-        <div className="employee-form-grid">
-          <input
-            type="text"
-            name="name"
-            placeholder="Employee Name"
-            value={employeeForm.name}
-            onChange={handleEmployeeChange}
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Employee Email"
-            value={employeeForm.email}
-            onChange={handleEmployeeChange}
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={employeeForm.password}
-            onChange={handleEmployeeChange}
-          />
-
-          <select
-            name="role"
-            value={employeeForm.role}
-            onChange={handleEmployeeChange}
-          >
-            <option value="EMPLOYEE">EMPLOYEE</option>
-            <option value="ADMIN">ADMIN</option>
-          </select>
-
-          <button onClick={createEmployee}>
-            Create Employee
-          </button>
-        </div>
-      </div>
     </AdminLayout>
   );
 }
