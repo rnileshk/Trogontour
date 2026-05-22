@@ -12,12 +12,6 @@ function FeaturedDestinations() {
         "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
       description: "Tea gardens, wildlife safaris and river island experiences.",
     },
-    {
-      title: "Sikkim",
-      image:
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
-      description: "Snow peaks, monasteries and peaceful mountain beauty.",
-    },
   ];
 
   return (
