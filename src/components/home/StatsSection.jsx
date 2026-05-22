@@ -3,7 +3,7 @@ function StatsSection() {
     { number: "500+", label: "Happy Travelers" },
     { number: "80+", label: "Tour Packages" },
     { number: "25+", label: "Destinations Covered" },
-    { number: "5+", label: "Years of Service" },
+    { number: "10+", label: "Years of Service" },
   ];
 
   return (
