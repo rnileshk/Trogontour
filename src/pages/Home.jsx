@@ -1,5 +1,4 @@
 import HeroSection from "../components/home/HeroSection";
-import PackageCategories from "../components/home/PackageCategories";
 import FeaturedTours from "../components/home/FeaturedTours";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import StatsSection from "../components/home/StatsSection";
@@ -12,7 +11,6 @@ function Home() {
   return (
     <>
       <HeroSection />
-      <PackageCategories />
       <FeaturedTours />
       <WhyChooseUs />
       <StatsSection />
