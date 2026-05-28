@@ -1,16 +1,11 @@
 function WhyChooseUs() {
   const items = [
     {
-      title: "Handpicked Packages",
-      desc: "Carefully designed tours for comfort, adventure and memorable experiences.",
-    },
-    {
       title: "Affordable Pricing",
-      desc: "Get quality travel experiences at competitive and transparent prices.",
+      desc: "We believe great travel should not feel like a luxury locked behind a vault. Our pricing is designed to be fair, flexible, and fully transparent, so you always know exactly what you are paying for.",
     },
     {
-      title: "Trusted Support",
-      desc: "Our team is always ready to help you before, during and after your trip.",
+      desc: "Our birding guide brings more than 10 years of experience in the field, offering deep knowledge of local bird species, habitats, and birdwatching techniques. With a keen eye for spotting rare and beautiful birds, he ensures every tour is both exciting and educational for nature enthusiasts of all levels. Known for his friendly nature and well-mannered personality, he creates a comfortable and enjoyable experience for guests, making every birding trip memorable and rewarding.",
     },
   ];
 

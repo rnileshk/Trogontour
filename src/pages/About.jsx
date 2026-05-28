@@ -17,7 +17,7 @@ function About() {
           >
             <div>
               <img
-                src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+                src="./header.jpeg"
                 alt="About travel"
                 style={{
                   width: "100%",
@@ -33,7 +33,7 @@ function About() {
                 Your Trusted Travel Partner
               </h2>
               <p style={{ lineHeight: "1.8", color: "grey" }}>
-                TravelScape is a travel experience platform focused on helping travelers
+                Trogontours is a travel experience platform focused on helping travelers
                 discover beautiful destinations through thoughtfully designed tour packages,
                 customized itineraries, and reliable support.
               </p>

@@ -7,6 +7,8 @@ import "./index.css";
 import "./styles/app.css";
 import "./styles/responsive.css";
 import "./styles/admin.css";
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

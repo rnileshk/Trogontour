@@ -5,11 +5,7 @@ function HeroSection() {
     <section
       style={{
         backgroundImage:
-<<<<<<< HEAD
-          "url('https://drive.google.com/file/d/1-h01EZEaiMcfb1wMwFuphRxhmNi3IafP/view?usp=sharing')",
-=======
           "url('./header.jpeg')",
->>>>>>> 63248d3 (Added admin login modal in navbar and UI improvements)
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "white",

@@ -34,28 +34,40 @@ function AdminLoginModal({ isOpen, onClose }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const res = await api.post("/auth/login", formData);
-      const token = res.data.token || res.data.data?.token;
+  try {
+    const res = await api.post("/auth/login", formData);
 
-      if (token) {
-        saveToken(token);
-        showToast("Login successful");
-        onClose();
+    const token = res.data.token || res.data.data?.token;
+    const role = res.data.role || res.data.data?.role; 
+    const user = res.data.user || res.data.data?.user;
+
+    if (token) {
+      saveToken(token);
+      showToast("Login successful");
+      onClose();
+
+      // 🧠 ROLE-BASED REDIRECT FIX
+      if (role === "ADMIN") {
         navigate("/admin/dashboard");
+      } else if (role === "EMPLOYEE") {
+        navigate("/employee/dashboard");
       } else {
-        showToast("Token not received from server", "error");
+        showToast("Unknown role received", "error");
       }
-    } catch (error) {
-      console.error("Login error:", error);
-      showToast("Login failed", "error");
-    } finally {
-      setLoading(false);
+
+    } else {
+      showToast("Token not received from server", "error");
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    showToast(error.response?.data?.message || "Login failed", "error");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>

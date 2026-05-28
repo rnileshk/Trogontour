@@ -1,5 +1,8 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
@@ -22,6 +25,7 @@ import ManageTours from "./pages/admin/ManageTours";
 import ManageEnquiries from "./pages/admin/ManageEnquiries";
 import ManageTestimonials from "./pages/admin/ManageTestimonials";
 import ManageGallery from "./pages/admin/ManageGallery";
+import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 
 function App() {
   const location = useLocation();
@@ -72,6 +76,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
 
           <Route
             path="/admin/testimonials"
