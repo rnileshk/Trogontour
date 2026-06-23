@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 
 const api = axios.create({
-  baseURL: "http://54.226.241.98:8080/api",
+  baseURL: "https://trogontoursnortheast.in/api",
 });
 
 api.interceptors.request.use(
