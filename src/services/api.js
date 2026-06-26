@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 
 const api = axios.create({
-  baseURL: "https://trogontoursnortheast.in/api",
+  baseURL: "http://api.trogontoursnortheast.in/api",
 });
 
 api.interceptors.request.use(

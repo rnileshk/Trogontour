@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -32,6 +35,14 @@ function App() {
 
   const isAdminRoute = location.pathname.startsWith("/admin");
   const isEmployeeRoute = location.pathname.startsWith("/employee");
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
 
   return (
     <>
@@ -96,6 +107,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           {/* NOT FOUND */}
           <Route path="*" element={<NotFound />} />
 

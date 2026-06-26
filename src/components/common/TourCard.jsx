@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function TourCard({ tour }) {
   return (
-    <div className="card"
+    <div data-aos="fade-up-left" data-aos-delay="1000" className="card"
     >
       <img
         src={tour.thumbnail || "https://via.placeholder.com/400x250"}

@@ -35,7 +35,7 @@ export default function HappyClients() {
   ];
 
   return (
-    <section
+    <section data-aos="fade-up-right" data-aos-offset="200" 
       style={{
         padding: "80px 20px",
         background: "linear-gradient(to bottom, #ffffff, #f4f9f7)"

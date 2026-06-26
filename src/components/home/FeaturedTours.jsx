@@ -32,7 +32,7 @@ function FeaturedTours() {
         ) : (
           <div className="grid grid-3">
             {tours.map((tour) => (
-              <TourCard key={tour.id} tour={tour} />
+              <TourCard data-aos="fade-up" key={tour.id} tour={tour} />
             ))}
           </div>
         )}

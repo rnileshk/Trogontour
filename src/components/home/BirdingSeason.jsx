@@ -24,7 +24,7 @@ export default function BirdingSeason() {
   ];
 
   return (
-    <section
+    <section data-aos="fade-up-right" data-aos-delay="1000"
       style={{
         padding: "80px 20px",
         background: "#f7faf8"
@@ -81,7 +81,6 @@ export default function BirdingSeason() {
                 objectFit: "cover",
                 height: "250px",
                   display: "block",
-                  objectFit: "cover",
                   objectPosition: "top center",
               }}
             />

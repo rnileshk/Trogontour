@@ -37,7 +37,7 @@ export default function Feature() {
   ];
 
   return (
-    <section
+    <section data-aos="fade-up" data-aos-delay="1000"
       style={{
         padding: "80px 20px",
         background: "linear-gradient(to bottom, #ffffff, #f4f9f7)"
