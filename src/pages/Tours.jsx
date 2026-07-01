@@ -46,7 +46,7 @@ function Tours() {
     <>
       <PageBanner
         title="Explore Our Tours"
-        subtitle="Choose from adventure, wildlife, honeymoon and scenic travel packages."
+        subtitle="Choose from adventure, wildlife, and scenic travel packages."
       />
 
       <section className="section">
