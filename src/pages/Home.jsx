@@ -9,7 +9,7 @@ import HappyClients from "../components/home/HappyClients";
 import Feature from "../components/home/Feature";
 import BirdingSeason from "../components/home/BirdingSeason";
 
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
 
 function Home() {
   if (MAINTENANCE_MODE) {
