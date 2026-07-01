@@ -15,7 +15,6 @@ import ScrollToTopButton from "./components/common/ScrollToTopButton";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Tours from "./pages/Tours";
 import TourDetails from "./pages/TourDetails";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
@@ -30,11 +29,15 @@ import ManageTestimonials from "./pages/admin/ManageTestimonials";
 import ManageGallery from "./pages/admin/ManageGallery";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 
+const MAINTENANCE_MODE = true; // keep in sync with Home.jsx
+
 function App() {
   const location = useLocation();
 
   const isAdminRoute = location.pathname.startsWith("/admin");
   const isEmployeeRoute = location.pathname.startsWith("/employee");
+  const isHome = location.pathname === "/";
+  const hideChrome = isHome && MAINTENANCE_MODE;
 
   useEffect(() => {
     AOS.init({
@@ -46,7 +49,7 @@ function App() {
 
   return (
     <>
-      {!isAdminRoute && !isEmployeeRoute && <Navbar />}
+      {!isAdminRoute && !isEmployeeRoute && !hideChrome && <Navbar />}
 
       <main style={{ minHeight: "80vh" }}>
         <Routes>
@@ -54,7 +57,6 @@ function App() {
           {/* PUBLIC ROUTES */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:slug" element={<TourDetails />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
@@ -64,7 +66,7 @@ function App() {
           <Route
             path="/admin/dashboard"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN"]}>
                 <Dashboard />
               </ProtectedRoute>
             }
@@ -73,7 +75,7 @@ function App() {
           <Route
             path="/admin/tours"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN"]}>
                 <ManageTours />
               </ProtectedRoute>
             }
@@ -82,18 +84,25 @@ function App() {
           <Route
             path="/admin/enquiries"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN"]}>
                 <ManageEnquiries />
               </ProtectedRoute>
             }
           />
 
-          <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
+          <Route
+            path="/employee/dashboard"
+            element={
+              <ProtectedRoute allowedRoles={["EMPLOYEE", "ADMIN"]}>
+                <EmployeeDashboard />
+              </ProtectedRoute>
+            }
+          />
 
           <Route
             path="/admin/testimonials"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN"]}>
                 <ManageTestimonials />
               </ProtectedRoute>
             }
@@ -102,7 +111,7 @@ function App() {
           <Route
             path="/admin/gallery"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN"]}>
                 <ManageGallery />
               </ProtectedRoute>
             }
@@ -114,7 +123,7 @@ function App() {
         </Routes>
       </main>
 
-      {!isAdminRoute && !isEmployeeRoute && (
+      {!isAdminRoute && !isEmployeeRoute && !hideChrome && (
         <>
           <Footer />
           <WhatsAppButton />
