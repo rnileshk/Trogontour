@@ -29,7 +29,7 @@ import ManageTestimonials from "./pages/admin/ManageTestimonials";
 import ManageGallery from "./pages/admin/ManageGallery";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 
-const MAINTENANCE_MODE = true; // keep in sync with Home.jsx
+const MAINTENANCE_MODE = false; // keep in sync with Home.jsx
 
 function App() {
   const location = useLocation();
